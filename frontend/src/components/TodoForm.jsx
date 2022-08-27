@@ -6,7 +6,6 @@ function TodoForm() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
 
-
     const handleSubmit = (event) => {
         event.preventDefault()
         const todo = {
@@ -14,12 +13,14 @@ function TodoForm() {
             "description": description,
         }
         createTodo(todo);
+        setTitle("")
+        setDescription("")
     }
     return (
         <form onSubmit={handleSubmit}>
             <input placeholder='Título de la tarea'
-                onChange={(e) => setTitle(e.target.value)} />
-            <input type="text" placeholder='Descripción de la tarea' onChange={(e) => setDescription(e.target.value)} />
+                onChange={(e) => setTitle(e.target.value)} value={title} />
+            <input type="textarea" placeholder='Descripción de la tarea' onChange={(e) => setDescription(e.target.value)} value={description} />
             <button>Guardar</button>
         </form>
     )

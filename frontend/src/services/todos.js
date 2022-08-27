@@ -30,12 +30,13 @@ export async function createTodo(todo) {
     console.log(error);
   }
 }
-export async function deleteTodo(todo) {
+export async function deleteTodo(id) {
   try {
-    const response = await fetch(`${API_URL}/todos/` + todo.id, {
+    const response = await fetch(`${API_URL}/todos/` + id, {
       method: "DELETE",
       headers: {
         "X-CSRFToken": window.CSRF_TOKEN,
+        "Content-Type": "application/json",
       },
     });
     const data = await response.json();

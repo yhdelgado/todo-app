@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
 import { Box, Button, Flex, Tag, Spacer, Text } from '@chakra-ui/react'
 
-export function TodoItem(todo) {
+export function TodoItem({ todo, deleteTodo }) {
 
     return (
         <Box bg={'gray.100'} borderRadius="lg" p={4} m={4}>
@@ -17,7 +16,9 @@ export function TodoItem(todo) {
                     {todo.description}
                 </Text>
             </Flex>
-            <Button colorScheme={"red"} mt={1} variant='outline' onClick={todo.deleteTodo}>Delete</Button>
+            <Button colorScheme={"red"} mt={1} variant='outline' onClick={() => {
+                deleteTodo(todo.id)
+            }}>Delete</Button>
         </Box >
     )
 }

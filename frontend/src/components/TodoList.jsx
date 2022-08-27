@@ -7,13 +7,14 @@ export function TodoList() {
 
     useEffect(() => {
         getAllTodos()
-    }, [])
+    }, [deleteTodo])
 
-    function deleteTodo(id) {
-
-    }
     function getAllTodos() {
         API.getAllTodos().then(setTodos)
+    }
+
+    function deleteTodo(todoId) {
+        API.deleteTodo(todoId)
     }
 
     return (
@@ -21,7 +22,7 @@ export function TodoList() {
             <section>
                 {
                     todos.map((todo) => (
-                        < TodoItem key={todo.id}{...todo} />
+                        < TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} />
                     ))
                 }
             </section>
