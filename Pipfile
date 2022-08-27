@@ -1,0 +1,15 @@
+[[source]]
+url = "http://localhost:8081/repository/pypi-all/simple"
+verify_ssl = false
+name = "home"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
+
+[dev-packages]
+autopep8 = "*"
+
+[requires]
+python_version = "3.10"
